@@ -11,8 +11,6 @@ const saveCordenadasGet = (req, res = response) => {
 const saveCordenadasPOST = (req, res = response) => {
     const {latitud, longitud} = req.body;
     res.json({
-        ok: true,
-        msg: "POST Api rest desde el controlador",
         latitud,
         longitud
     })

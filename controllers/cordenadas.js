@@ -4,7 +4,7 @@ const saveCordenadasGet = (req, res = response) => {
 
     res.json({
         ok: true,
-        msg: "get Api rest desde el controlador"
+        msg: "get Api rest desde el controlador willy gay"
     })
 }
 

@@ -9,10 +9,10 @@ const saveCordenadasGet = (req, res = response) => {
 }
 
 const saveCordenadasPOST = (req, res = response) => {
-    const {latitud, longitud} = req.body;
+    const body = req.body;
+    console.log({body});
     res.json({
-        latitud,
-        longitud
+        body
     })
 }
 module.exports = {

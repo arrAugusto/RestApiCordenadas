@@ -1,3 +1,13 @@
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host: 'b0bkuit1yfkbcafigwey-mysql.services.clever-cloud.com',
+    user: 'u2asrlgxjquivkrq',
+    password: 'XAOKrsa8yg5DH9xJCpbi',
+    database: 'b0bkuit1yfkbcafigwey'
+});
+
+
+
 const { response } = require('express')
 
 const saveCordenadasGet = (req, res = response) => {
@@ -9,14 +19,25 @@ const saveCordenadasGet = (req, res = response) => {
 }
 
 const saveCordenadasPOST = (req, res = response) => {
-    const { accuracy, altitude, heading, latitude, longitude, speed} = req.body;
-    console.log({body});
+
+    const { accuracy, altitude, heading, latitude, longitude, speed } = req.body;
+
+    let sql = `CALL New_Cordenada_Reg(`+accuracy+`, `+altitude+`, `+heading+`, `+latitude+`, `+longitude+`, `+speed+`, 1, '2022-03-23')`;
+    connection.query(sql, 
+    function (error, results, fields) {
+        if (error) throw error;
+        console.log('The solution is: ');
+    });
+
+
+
+
     res.json({
-        accuracy, 
+        accuracy,
         altitude,
-        heading, 
-        latitude, 
-        longitude, 
+        heading,
+        latitude,
+        longitude,
         speed
     })
 }

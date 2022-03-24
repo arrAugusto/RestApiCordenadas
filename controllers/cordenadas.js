@@ -25,8 +25,9 @@ const saveCordenadasPOST = (req, res = response) => {
     let sql = `CALL New_Cordenada_Reg(`+accuracy+`, `+altitude+`, `+heading+`, `+latitude+`, `+longitude+`, `+speed+`, 1, '2022-03-23')`;
     connection.query(sql, 
     function (error, results, fields) {
+
         if (error) throw error;
-        console.log('The solution is: ');
+        console.log('ok: ');
     });
 
 

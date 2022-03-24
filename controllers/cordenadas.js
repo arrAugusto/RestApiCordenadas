@@ -27,7 +27,7 @@ const saveCordenadasPOST = (req, res = response) => {
     function (error, results, fields) {
 
         if (error) throw error;
-        console.log('ok: ');
+        console.log('ok>>> ');
     });
 
 

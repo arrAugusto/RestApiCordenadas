@@ -20,8 +20,8 @@ const saveCordenadasGet = (req, res = response) => {
 
 const saveCordenadasPOST = (req, res = response) => {
 
-    const { accuracy, altitude, heading, latitude, longitude, speed } = req.body;
-
+    const { accuracy, altitude, heading, latitude, longitude, speed, timeDate } = req.body;
+    console.log(`timestapn >>> `+timeDate);
     let sql = `CALL New_Cordenada_Reg(`+accuracy+`, `+altitude+`, `+heading+`, `+latitude+`, `+longitude+`, `+speed+`, 1, '2022-03-23')`;
     connection.query(sql, 
     function (error, results, fields) {

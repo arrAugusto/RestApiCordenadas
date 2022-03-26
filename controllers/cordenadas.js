@@ -23,7 +23,7 @@ const saveCordenadasPOST = (req, res = response) => {
 
     const { accuracy, altitude, heading, latitude, longitude, speed, timeDate } = req.body;
 
-    let time = moment(timeDate).format("DD-MM-YYYY h:mm:ss");
+    let time = moment(timeDate).format("YYYY-MM-DD h:mm:ss");
     console.log(`Moment >>> `+time);    
 
     let sql = `CALL New_Cordenada_Reg(`+accuracy+`, `+altitude+`, `+heading+`, `+latitude+`, `+longitude+`, `+speed+`, 1, `+time+`)`;

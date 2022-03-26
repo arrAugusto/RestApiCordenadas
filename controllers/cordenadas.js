@@ -8,7 +8,8 @@ var connection = mysql.createConnection({
 
 
 
-const { response } = require('express')
+const { response } = require('express');
+const moment = require('moment');
 
 const saveCordenadasGet = (req, res = response) => {
 
@@ -23,9 +24,9 @@ const saveCordenadasPOST = (req, res = response) => {
     const { accuracy, altitude, heading, latitude, longitude, speed, timeDate } = req.body;
 
     let time = moment(timeDate).format("DD-MM-YYYY h:mm:ss");
-    console.log(`Moment >>> `+time);
+    console.log(`Moment >>> `+time);    
 
-    let sql = `CALL New_Cordenada_Reg(`+accuracy+`, `+altitude+`, `+heading+`, `+latitude+`, `+longitude+`, `+speed+`, 1, '2022-03-23')`;
+    let sql = `CALL New_Cordenada_Reg(`+accuracy+`, `+altitude+`, `+heading+`, `+latitude+`, `+longitude+`, `+speed+`, 1, `+time+`)`;
     connection.query(sql, 
     function (error, results, fields) {
 
@@ -42,7 +43,8 @@ const saveCordenadasPOST = (req, res = response) => {
         heading,
         latitude,
         longitude,
-        speed
+        speed,
+        time
     })
 }
 module.exports = {

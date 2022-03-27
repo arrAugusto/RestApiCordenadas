@@ -21,6 +21,7 @@ const saveCordenadasGet = (req, res = response) => {
 const saveCordenadasPOST = (req, res = response) => {
 
     const { accuracy, altitude, heading, latitude, longitude, speed, timeDate } = req.body;
+    
     let sql = `CALL New_Cordenada_Reg(`+accuracy+`, `+altitude+`, `+heading+`, `+latitude+`, `+longitude+`, `+speed+`, 1, '`+timeDate+`')`;
     console.log(sql);
  
